@@ -9,13 +9,13 @@
     }
   ]
 
-  let newTodo = ''
+  let newTodo;
 
   let isShowAllTodos = false
 
   function addTodo(e) {
 
-    if (e.key && e.key !== 'Enter') return 
+    if (!newTodo || (e.key && e.key !== 'Enter')) return 
 
     todos = [...todos, {
       name: newTodo,
@@ -46,7 +46,11 @@
 
 </script>
 
-<Heading tag="h1" class="mb-4" customSize="text-4xl font-extrabold md:text-5xl lg:text-6xl text-center">
+<Heading 
+  tag="h1"
+  class="mb-4"
+  customSize="text-4xl font-extrabold md:text-5xl lg:text-6xl text-center"
+>
   Todo App
 </Heading>
 
@@ -65,13 +69,19 @@
 <div>
   <Label for="new_todo" class="mb-2">New todo</Label>
   <div class="new-todo">
-    <Input class="mr-2" type="text" id="new_todo" placeholder="New todo" bind:value={newTodo} on:keydown={addTodo} />
+    <Input
+      class="mr-2"
+      type="text"
+      id="new_todo"
+      placeholder="New todo"
+      bind:value={newTodo}
+      on:keydown={addTodo}
+    />
     <Button on:click={addTodo}>Add</Button>
   </div>
 </div>
 
 <style>
-
   .new-todo {
     display: flex;
   }

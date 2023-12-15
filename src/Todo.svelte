@@ -26,8 +26,18 @@
 </script>
 
 <li transition:fade class="mb-6">    
-  <Checkbox class="space-x-1 rtl:space-x-reverse mr-2" checked={todo.isDone} on:change={onCheck} id="is_done">
-    <Input type="text" bind:value={todo.name} on:input={onInput} id="name" />
+  <Checkbox
+    class="space-x-1 rtl:space-x-reverse mr-2"
+    checked={todo.isDone}
+    on:change={onCheck}
+    id="is_done"
+  >
+    <Input
+      type="text"
+      bind:value={todo.name}
+      on:input={onInput}
+      id="name"
+    />
   </Checkbox>
   <Button on:click={onDelete}>X</Button>
 </li>
@@ -38,5 +48,4 @@
     align-items: center;
     justify-content: center;
   }
-
 </style>
